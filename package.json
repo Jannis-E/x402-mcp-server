@@ -1,0 +1,26 @@
+{
+  "name": "x402-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server exposing 4 x402-paywalled tool(s) on Base Mainnet, each self-paying via EIP-3009 through a local wallet. No API keys, no signup -- pay per call in USDC.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "x402-mcp-server": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "x402",
+    "base-mainnet",
+    "web-scraper",
+    "secret-vault"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "viem": "^2.21.0"
+  }
+}

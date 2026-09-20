@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "markdown-extractor",
+    "name": "Markdown Extractor",
+    "description": "Fetches a public URL and returns clean, token-efficient markdown, paywalled with the x402 v2 protocol on Base Mainnet. Designed for autonomous AI agents to call directly: no API key, no signup — pay per call in USDC.",
+    "url": "https://markdown-extractor.jannioura.workers.dev",
+    "priceUsdc": "0.01",
+    "priceAtomic": "10000",
+    "network": "eip155:8453",
+    "facilitatorUrl": "https://x402.primer.systems",
+    "updatedAt": "2026-09-19T20:49:42.833Z"
+  },
+  {
+    "slug": "spa-dom-to-md",
+    "name": "SPA Render & Extract",
+    "description": "Renders JavaScript-heavy SPA pages in real headless Chromium via Cloudflare Browser Rendering, waits for network-idle / selector-ready, strips nav/footer/script chrome, and serializes the fully-rendered DOM into clean, LLM-ready Markdown.",
+    "url": "https://spa-dom-to-md.jannioura.workers.dev",
+    "priceUsdc": "0.03",
+    "priceAtomic": "30000",
+    "network": "eip155:8453",
+    "facilitatorUrl": "https://x402.primer.systems",
+    "eip712Domain": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "updatedAt": "2026-09-19T20:49:21.801Z"
+  },
+  {
+    "slug": "burn-once-secret-vault",
+    "name": "Burn-Once Secret Vault",
+    "description": "Store a secret (API key, webhook payload, signed URL) encrypted with WebCrypto AES-256-GCM and share a claim URL that yields the secret exactly once. A Durable Object serializes reads so single-use delivery is race-free, and every burn returns an Ed25519-signed attestation. Creating a vault requires x402 payment; the recipient's claim read (GET /v/:vault_id) is free.",
+    "url": "https://burn-once-secret-vault.jannioura.workers.dev",
+    "priceUsdc": "0.01",
+    "priceAtomic": "10000",
+    "network": "eip155:8453",
+    "facilitatorUrl": "https://x402.primer.systems",
+    "eip712Domain": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "updatedAt": "2026-09-19T20:49:28.222Z"
+  },
+  {
+    "slug": "svg-bar-chart-renderer",
+    "name": "SVG Bar Chart Renderer",
+    "description": "Deterministic, paid-per-render SVG bar chart generator for LLM agents. Accepts labeled scalar data and layout options, performs exact geometry math (min/max normalization, nice-interval y-axis ticks, label spacing, bar-width distribution), and returns schema-valid, escape-correct SVG with identical input always yielding byte-identical output.",
+    "url": "https://svg-bar-chart-renderer.jannioura.workers.dev",
+    "priceUsdc": "0.015",
+    "priceAtomic": "15000",
+    "network": "eip155:8453",
+    "facilitatorUrl": "https://x402.primer.systems",
+    "eip712Domain": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "updatedAt": "2026-09-19T20:49:34.083Z"
+  }
+]
