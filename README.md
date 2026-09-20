@@ -37,6 +37,14 @@ Add this to your `claude_desktop_config.json`:
 
 Once configured, restart Claude Desktop and the four tools above become available to the assistant automatically — no further setup, no dashboard, no API key registration.
 
+## How payment works
+
+`BASE_PRIVATE_KEY` is **your own** wallet — whoever installs this server sets their own key and pays for their own calls. Each call settles straight to the tool provider's wallet; your key never touches anyone else's funds and no one else's key ever touches yours. To set it up:
+
+1. Use (or create) a Base Mainnet EVM wallet you're OK spending small amounts from.
+2. Fund it with a bit of USDC on Base (e.g. $0.50).
+3. Export its private key and set it as `BASE_PRIVATE_KEY` in your MCP client config, as shown above.
+
 ## Security
 
 - `BASE_PRIVATE_KEY` never leaves your machine. It is read once from the local environment and used **only** to sign EIP-712 typed-data (EIP-3009 `TransferWithAuthorization`) payment authorizations locally with `viem`.
