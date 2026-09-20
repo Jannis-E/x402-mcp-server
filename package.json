@@ -1,6 +1,6 @@
 {
   "name": "x402-mcp-server_by_milza",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server exposing 4 x402-paywalled tool(s) on Base Mainnet, each self-paying via EIP-3009 through a local wallet. No API keys, no signup -- pay per call in USDC.",
   "type": "module",
   "main": "index.js",

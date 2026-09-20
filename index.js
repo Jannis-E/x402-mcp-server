@@ -147,7 +147,7 @@ async function main() {
   const catalog = await loadCatalog();
 
   const server = new Server(
-    { name: "x402-mcp-server_by_milza", version: "1.0.0" },
+    { name: "x402-mcp-server_by_milza", version: "1.0.1" },
     { capabilities: { tools: {} } },
   );
 
