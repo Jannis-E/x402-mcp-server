@@ -147,7 +147,7 @@ async function main() {
   const catalog = await loadCatalog();
 
   const server = new Server(
-    { name: "x402-mcp-server", version: "0.1.0" },
+    { name: "x402-mcp-server_by_milza", version: "1.0.0" },
     { capabilities: { tools: {} } },
   );
 
@@ -176,6 +176,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error("[x402-mcp-server] fatal:", err instanceof Error ? err.message : err);
+  console.error("[x402-mcp-server_by_milza] fatal:", err instanceof Error ? err.message : err);
   process.exit(1);
 });
