@@ -24,7 +24,7 @@ Add this to your `claude_desktop_config.json`:
   "mcpServers": {
     "x402-mcp-server": {
       "command": "npx",
-      "args": ["-y", "x402-mcp-server"],
+      "args": ["-y", "x402-mcp-server_by_milza"],
       "env": {
         "BASE_PRIVATE_KEY": "0xyour_base_mainnet_private_key"
       }
