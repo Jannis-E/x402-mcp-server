@@ -60,3 +60,8 @@ Once configured, restart Claude Desktop and the four tools above become availabl
 ## License
 
 MIT
+
+## Links
+
+- [npm package](https://www.npmjs.com/package/x402-mcp-server_by_milza)
+- [Source / issues](https://github.com/Jannis-E/x402-mcp-server)

@@ -19,6 +19,18 @@
     "secret-vault"
   ],
   "license": "MIT",
+  "author": {
+    "name": "Jannis Eggenberger",
+    "url": "https://github.com/Jannis-E"
+  },
+  "homepage": "https://github.com/Jannis-E/x402-mcp-server#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jannis-E/x402-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jannis-E/x402-mcp-server/issues"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
     "viem": "^2.21.0"
