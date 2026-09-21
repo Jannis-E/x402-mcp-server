@@ -70,8 +70,18 @@ function getAccount() {
  * verifyingContract) and payTo/amount/nonce window are all taken from the
  * LIVE 402 challenge the server just sent, never from the local catalog
  * snapshot -- catalog.json can go stale, the live challenge cannot.
+ *
+ * SPENDING CEILING (added 2026-09-21): the live challenge is trusted for
+ * signing mechanics (domain, nonce window, asset) but NOT for the amount --
+ * this client blindly signed whatever `amount` a 402 response asked for,
+ * with no check against what the tool is actually supposed to cost. A
+ * hijacked/compromised/buggy endpoint returning a wildly inflated amount
+ * would have gotten a real signature against the user's own private key with
+ * no resistance at all. catalog.json's priceAtomic is the ceiling: refuse to
+ * sign anything above it, full stop.
  */
-async function callX402Tool(url, args) {
+async function callX402Tool(tool, args) {
+  const url = tool.url;
   const account = getAccount();
   const body = JSON.stringify(args ?? {});
   const headers = { "content-type": "application/json" };
@@ -89,6 +99,21 @@ async function callX402Tool(url, args) {
   const requirements = challenge?.accepts?.[0];
   if (!requirements?.scheme || !requirements?.asset || !requirements?.payTo) {
     throw new Error("402 response missing a usable PAYMENT-REQUIRED challenge");
+  }
+
+  let requestedAmount, ceilingAmount;
+  try {
+    requestedAmount = BigInt(requirements.amount);
+    ceilingAmount = BigInt(tool.priceAtomic);
+  } catch {
+    throw new Error(`refusing to sign: challenge amount "${requirements.amount}" or catalog priceAtomic "${tool.priceAtomic}" is not a valid integer`);
+  }
+  if (requestedAmount > ceilingAmount) {
+    throw new Error(
+      `refusing to sign: live 402 challenge for "${tool.slug}" demands ${requirements.amount} atomic units, ` +
+        `but the catalog snapshot says this tool costs at most ${tool.priceAtomic} -- refusing to pay more than ` +
+        `expected (possible compromised/hijacked endpoint or a serverside bug, not signing blind)`
+    );
   }
 
   const chainMatch = /^eip155:(\d+)$/.exec(requirements.network || "");
@@ -147,7 +172,7 @@ async function main() {
   const catalog = await loadCatalog();
 
   const server = new Server(
-    { name: "x402-mcp-server_by_milza", version: "1.0.1" },
+    { name: "x402-mcp-server_by_milza", version: "1.0.2" },
     { capabilities: { tools: {} } },
   );
 
@@ -167,7 +192,7 @@ async function main() {
     if (!tool) {
       throw new Error(`unknown tool: "${name}"`);
     }
-    const result = await callX402Tool(tool.url, args);
+    const result = await callX402Tool(tool, args);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   });
 
