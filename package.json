@@ -1,7 +1,7 @@
 {
   "name": "x402-mcp-server_by_milza",
   "version": "1.0.3",
-  "description": "MCP server exposing 5 x402-paywalled tool(s) on Base Mainnet, each self-paying via EIP-3009 through a local wallet. No API keys, no signup -- pay per call in USDC.",
+  "description": "MCP server exposing 5 pay-per-call x402 tools on Base Mainnet, each self-paying via EIP-3009 through a local wallet -- no API keys, no signup: Markdown Extractor, SPA Render & Extract, Burn-Once Secret Vault, SVG Bar Chart Renderer, GeoTIFF → PNG/WebP Tile Transcoder.",
   "type": "module",
   "main": "index.js",
   "bin": {
@@ -15,8 +15,27 @@
     "model-context-protocol",
     "x402",
     "base-mainnet",
-    "web-scraper",
-    "secret-vault"
+    "usdc",
+    "markdown-extractor",
+    "markdown",
+    "extractor",
+    "spa-dom-to-md",
+    "spa",
+    "dom",
+    "burn-once-secret-vault",
+    "burn",
+    "once",
+    "secret",
+    "vault",
+    "svg-bar-chart-renderer",
+    "svg",
+    "bar",
+    "chart",
+    "renderer",
+    "wasm-geotiff-transcoder",
+    "wasm",
+    "geotiff",
+    "transcoder"
   ],
   "license": "MIT",
   "author": {
