@@ -54,5 +54,20 @@
       "version": "2"
     },
     "updatedAt": "2026-09-19T20:49:34.083Z"
+  },
+  {
+    "slug": "wasm-geotiff-transcoder",
+    "name": "GeoTIFF → PNG/WebP Tile Transcoder",
+    "description": "Decodes a GeoTIFF/COG raster (fetch by https URL or inline base64), reads the selected RGB bands via windowed overview-level reads, applies a tone-map stretch, and returns a render-ready PNG/WebP plus structured georeference metadata (CRS, bounds, pixel scale) and source stats. Sources are hard-capped at 20 MB and output width at 2048 px.",
+    "url": "https://wasm-geotiff-transcoder.jannioura.workers.dev",
+    "priceUsdc": "0.03",
+    "priceAtomic": "30000",
+    "network": "eip155:8453",
+    "facilitatorUrl": "https://x402.primer.systems",
+    "eip712Domain": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "updatedAt": "2026-09-21T19:04:12.650Z"
   }
 ]
