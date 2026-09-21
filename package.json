@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "bin": {
-    "x402-mcp-server": "./index.js"
+    "x402-mcp-server": "index.js"
   },
   "scripts": {
     "start": "node index.js"
