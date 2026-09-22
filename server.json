@@ -6,12 +6,12 @@
     "url": "https://github.com/Jannis-E/x402-mcp-server",
     "source": "github"
   },
-  "version": "1.0.4",
+  "version": "1.0.5",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "x402-mcp-server_by_milza",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "transport": {
         "type": "stdio"
       },

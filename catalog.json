@@ -7,8 +7,13 @@
     "priceUsdc": "0.01",
     "priceAtomic": "10000",
     "network": "eip155:8453",
-    "facilitatorUrl": "https://x402.primer.systems",
-    "updatedAt": "2026-09-19T20:49:42.833Z"
+    "facilitatorUrl": "https://api.cdp.coinbase.com/platform/v2/x402",
+    "facilitatorUrls": [
+      "https://api.cdp.coinbase.com/platform/v2/x402",
+      "https://facilitator.payai.network",
+      "https://x402.primer.systems"
+    ],
+    "updatedAt": "2026-09-22T22:31:42.000Z"
   },
   {
     "slug": "spa-dom-to-md",
@@ -18,12 +23,17 @@
     "priceUsdc": "0.03",
     "priceAtomic": "30000",
     "network": "eip155:8453",
-    "facilitatorUrl": "https://x402.primer.systems",
+    "facilitatorUrl": "https://api.cdp.coinbase.com/platform/v2/x402",
+    "facilitatorUrls": [
+      "https://api.cdp.coinbase.com/platform/v2/x402",
+      "https://facilitator.payai.network",
+      "https://x402.primer.systems"
+    ],
     "eip712Domain": {
       "name": "USD Coin",
       "version": "2"
     },
-    "updatedAt": "2026-09-19T20:49:21.801Z"
+    "updatedAt": "2026-09-22T22:31:42.000Z"
   },
   {
     "slug": "burn-once-secret-vault",
@@ -33,12 +43,17 @@
     "priceUsdc": "0.01",
     "priceAtomic": "10000",
     "network": "eip155:8453",
-    "facilitatorUrl": "https://x402.primer.systems",
+    "facilitatorUrl": "https://api.cdp.coinbase.com/platform/v2/x402",
+    "facilitatorUrls": [
+      "https://api.cdp.coinbase.com/platform/v2/x402",
+      "https://facilitator.payai.network",
+      "https://x402.primer.systems"
+    ],
     "eip712Domain": {
       "name": "USD Coin",
       "version": "2"
     },
-    "updatedAt": "2026-09-21T14:13:19.530Z"
+    "updatedAt": "2026-09-22T22:31:42.000Z"
   },
   {
     "slug": "svg-bar-chart-renderer",
@@ -48,12 +63,17 @@
     "priceUsdc": "0.015",
     "priceAtomic": "15000",
     "network": "eip155:8453",
-    "facilitatorUrl": "https://x402.primer.systems",
+    "facilitatorUrl": "https://api.cdp.coinbase.com/platform/v2/x402",
+    "facilitatorUrls": [
+      "https://api.cdp.coinbase.com/platform/v2/x402",
+      "https://facilitator.payai.network",
+      "https://x402.primer.systems"
+    ],
     "eip712Domain": {
       "name": "USD Coin",
       "version": "2"
     },
-    "updatedAt": "2026-09-19T20:49:34.083Z"
+    "updatedAt": "2026-09-22T22:31:42.000Z"
   },
   {
     "slug": "wasm-geotiff-transcoder",
@@ -63,11 +83,16 @@
     "priceUsdc": "0.03",
     "priceAtomic": "30000",
     "network": "eip155:8453",
-    "facilitatorUrl": "https://x402.primer.systems",
+    "facilitatorUrl": "https://api.cdp.coinbase.com/platform/v2/x402",
+    "facilitatorUrls": [
+      "https://api.cdp.coinbase.com/platform/v2/x402",
+      "https://facilitator.payai.network",
+      "https://x402.primer.systems"
+    ],
     "eip712Domain": {
       "name": "USD Coin",
       "version": "2"
     },
-    "updatedAt": "2026-09-21T19:04:12.650Z"
+    "updatedAt": "2026-09-22T22:31:42.000Z"
   }
 ]

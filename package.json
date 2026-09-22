@@ -1,6 +1,6 @@
 {
   "name": "x402-mcp-server_by_milza",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "mcpName": "io.github.Jannis-E/x402-mcp-server",
   "description": "MCP server exposing 5 pay-per-call x402 tools on Base Mainnet, each self-paying via EIP-3009 through a local wallet -- no API keys, no signup: Markdown Extractor, SPA Render & Extract, Burn-Once Secret Vault, SVG Bar Chart Renderer, GeoTIFF → PNG/WebP Tile Transcoder.",
   "type": "module",
@@ -8,6 +8,12 @@
   "bin": {
     "x402-mcp-server": "index.js"
   },
+  "files": [
+    "index.js",
+    "catalog.json",
+    "server.json",
+    "glama.json"
+  ],
   "scripts": {
     "start": "node index.js"
   },

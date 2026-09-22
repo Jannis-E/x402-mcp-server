@@ -16,7 +16,7 @@ This MCP server exposes that catalog as native MCP tools. Every tool call pays f
 | `wasm-geotiff-transcoder` | 0.03 | Decodes a GeoTIFF/COG raster (fetch by https URL or inline base64), reads the selected RGB bands via windowed overview-level reads, applies a tone-map stretch, and returns a render-ready PNG/WebP plus structured georeference metadata (CRS, bounds, pixel scale) and source stats. Sources are hard-capped at 20 MB and output width at 2048 px. | exactly one of `source` or `or_base64_body` (required) |
 <!-- END GENERATED TOOLS TABLE -->
 
-All tools run on Base Mainnet (`eip155:8453`), settled through the [x402.primer.systems](https://x402.primer.systems) facilitator. Exact request-body fields for each tool are also discoverable at runtime via `<tool-url>/openapi.json`.
+All tools run on Base Mainnet (`eip155:8453`). Settlement happens server-side through an ordered facilitator chain — [Coinbase CDP](https://docs.cdp.coinbase.com/x402/welcome), then [PayAI](https://facilitator.payai.network), then [Primer](https://x402.primer.systems) as fallbacks — which changes nothing on your side: you sign the same EIP-3009 authorization either way, and every tool is also listed in the CDP and PayAI x402 Bazaar discovery catalogs. Exact request-body fields for each tool are also discoverable at runtime via `<tool-url>/openapi.json`.
 
 ## Quickstart
 
