@@ -51,6 +51,16 @@ function randomNonce() {
   return "0x" + [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
+// Opt-in, off by default -- set X402_MCP_TRACE=1 to see the 402/sign/settle
+// steps on stderr as they happen (stdout is reserved for the MCP JSON-RPC
+// protocol, so this is always safe to enable without corrupting it). Useful
+// for demos and debugging; never includes the private key or the raw
+// signature, only shapes/addresses/amounts.
+const TRACE = process.env.X402_MCP_TRACE === "1";
+function trace(msg) {
+  if (TRACE) console.error(`[x402-mcp-server_by_milza] ${msg}`);
+}
+
 async function loadCatalog() {
   const raw = await readFile(resolve(__dirname, "catalog.json"), "utf8");
   return JSON.parse(raw);
@@ -86,13 +96,16 @@ async function callX402Tool(tool, args) {
   const body = JSON.stringify(args ?? {});
   const headers = { "content-type": "application/json" };
 
+  trace(`calling "${tool.slug}" at ${url} (no payment attached yet)`);
   const firstRes = await fetch(url, { method: "POST", headers, body });
   if (firstRes.status !== 402) {
     if (!firstRes.ok) {
       throw new Error(`tool call failed: HTTP ${firstRes.status}: ${await firstRes.text()}`);
     }
+    trace(`HTTP ${firstRes.status}, no payment was required for this call`);
     return await firstRes.json();
   }
+  trace("received HTTP 402 PAYMENT-REQUIRED -- reading the live challenge");
 
   const encodedChallenge = firstRes.headers.get(HEADER_PAYMENT_REQUIRED);
   const challenge = encodedChallenge ? decodeBase64Json(encodedChallenge) : null;
@@ -100,6 +113,7 @@ async function callX402Tool(tool, args) {
   if (!requirements?.scheme || !requirements?.asset || !requirements?.payTo) {
     throw new Error("402 response missing a usable PAYMENT-REQUIRED challenge");
   }
+  trace(`challenge: pay ${requirements.amount} atomic units of ${requirements.asset} to ${requirements.payTo} on ${requirements.network}`);
 
   let requestedAmount, ceilingAmount;
   try {
@@ -115,6 +129,7 @@ async function callX402Tool(tool, args) {
         `expected (possible compromised/hijacked endpoint or a serverside bug, not signing blind)`
     );
   }
+  trace(`amount within the ${tool.priceAtomic}-atomic-unit ceiling for this tool -- proceeding to sign`);
 
   const chainMatch = /^eip155:(\d+)$/.exec(requirements.network || "");
   if (!chainMatch) {
@@ -134,6 +149,7 @@ async function callX402Tool(tool, args) {
     nonce: randomNonce(),
   };
 
+  trace(`signing EIP-3009 TransferWithAuthorization locally with BASE_PRIVATE_KEY for ${authorization.from} (key never leaves this process)`);
   const signature = await account.signTypedData({
     domain: { name: domainName, version: domainVersion, chainId, verifyingContract: requirements.asset },
     types: TRANSFER_WITH_AUTHORIZATION_TYPES,
@@ -147,6 +163,7 @@ async function callX402Tool(tool, args) {
       nonce: authorization.nonce,
     },
   });
+  trace("signed -- resubmitting the request with the PAYMENT-SIGNATURE header attached");
 
   const paymentPayload = {
     x402Version: challenge.x402Version,
@@ -165,6 +182,7 @@ async function callX402Tool(tool, args) {
   if (!paidRes.ok) {
     throw new Error(`paid tool call failed: HTTP ${paidRes.status}: ${await paidRes.text()}`);
   }
+  trace(`HTTP ${paidRes.status} -- payment settled, returning the tool's response`);
   return await paidRes.json();
 }
 

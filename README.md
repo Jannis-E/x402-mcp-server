@@ -53,6 +53,7 @@ Once configured, restart Claude Desktop and the tools listed above become availa
 - `BASE_PRIVATE_KEY` never leaves your machine. It is read once from the local environment and used **only** to sign EIP-712 typed-data (EIP-3009 `TransferWithAuthorization`) payment authorizations locally with `viem`.
 - No raw private key, seed phrase, or signature is ever sent over the network — only the resulting signed authorization, exactly as the x402 protocol requires to settle payment for the specific request being made.
 - Payment terms (recipient, amount, network, asset contract, expiry) are read fresh from each live `402` challenge returned by the resource server, never trusted from a local cache, so a stale or tampered local catalog can't redirect funds.
+- **Spending ceiling**: the live `402` challenge is trusted for signing mechanics (domain, nonce window, asset) but never for the amount. Every call checks the challenge's requested amount against this catalog's known price for that tool and refuses to sign anything higher — a hijacked, compromised, or buggy endpoint can't get a blank-check signature just by asking for more.
 - This package does not phone home, collect telemetry, or store your key anywhere on disk.
 
 ## Requirements
