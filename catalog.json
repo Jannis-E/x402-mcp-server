@@ -13,7 +13,7 @@
       "https://facilitator.payai.network",
       "https://x402.primer.systems"
     ],
-    "updatedAt": "2026-09-22T22:31:42.000Z"
+    "updatedAt": "2026-09-23T18:21:35.927Z"
   },
   {
     "slug": "spa-dom-to-md",
@@ -33,7 +33,7 @@
       "name": "USD Coin",
       "version": "2"
     },
-    "updatedAt": "2026-09-22T22:31:42.000Z"
+    "updatedAt": "2026-09-23T18:21:50.897Z"
   },
   {
     "slug": "burn-once-secret-vault",
@@ -53,7 +53,7 @@
       "name": "USD Coin",
       "version": "2"
     },
-    "updatedAt": "2026-09-22T22:31:42.000Z"
+    "updatedAt": "2026-09-23T18:22:05.753Z"
   },
   {
     "slug": "svg-bar-chart-renderer",
@@ -73,12 +73,12 @@
       "name": "USD Coin",
       "version": "2"
     },
-    "updatedAt": "2026-09-22T22:31:42.000Z"
+    "updatedAt": "2026-09-23T18:22:19.444Z"
   },
   {
     "slug": "wasm-geotiff-transcoder",
     "name": "GeoTIFF → PNG/WebP Tile Transcoder",
-    "description": "Decodes a GeoTIFF/COG raster (fetch by https URL or inline base64), reads the selected RGB bands via windowed overview-level reads, applies a tone-map stretch, and returns a render-ready PNG/WebP plus structured georeference metadata (CRS, bounds, pixel scale) and source stats. Sources are hard-capped at 20 MB and output width at 2048 px.",
+    "description": "Decodes a GeoTIFF/COG (https URL or inline base64), reads the selected RGB bands via windowed overview reads, applies a tone-map stretch, and returns a PNG/WebP plus georeference metadata (CRS, bounds, pixel scale) and source stats. Limits: 20 MB source, 2048 px output width. Billed per attempt: payment settles after structural validation, before decode, so decode-time failures (e.g. a bands_rgb band the source lacks) are still charged.",
     "url": "https://wasm-geotiff-transcoder.jannioura.workers.dev",
     "priceUsdc": "0.03",
     "priceAtomic": "30000",
@@ -93,6 +93,6 @@
       "name": "USD Coin",
       "version": "2"
     },
-    "updatedAt": "2026-09-22T22:31:42.000Z"
+    "updatedAt": "2026-09-23T18:22:34.907Z"
   }
 ]
