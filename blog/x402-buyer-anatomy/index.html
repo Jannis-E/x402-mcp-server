@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Who Buys x402 Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+<style>
+  :root {
+    --bg: #f7f7f5; --surface: #ffffff; --surface-2: #efefeb; --border: #e0e0da;
+    --text: #1d1d1b; --text-2: #55554f; --muted: #7d7d76;
+    --accent: #2f6fdb; --accent-soft: #dfe8f9;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a;
+    --bar: #2f6fdb; --bar-partial: #a9c3ee;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #121211; --surface: #1a1a19; --surface-2: #232321; --border: #2f2f2c;
+      --text: #ededea; --text-2: #b6b6af; --muted: #8a8a83;
+      --accent: #7aa7f5; --accent-soft: #1f2a3d;
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+      --bar: #5b93ee; --bar-partial: #2f4d7c;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #121211; --surface: #1a1a19; --surface-2: #232321; --border: #2f2f2c;
+    --text: #ededea; --text-2: #b6b6af; --muted: #8a8a83;
+    --accent: #7aa7f5; --accent-soft: #1f2a3d;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70;
+    --bar: #5b93ee; --bar-partial: #2f4d7c;
+  }
+
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font: 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+  .page { padding-inline: 20px; padding-block: 56px 96px; }
+  .col { max-width: 680px; margin-inline: auto; }
+  .wide { max-width: 880px; margin-inline: auto; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+  .status { font: 500 13px/1 var(--mono); color: var(--muted); display: flex; gap: 14px; flex-wrap: wrap; letter-spacing: 0.01em; }
+  .status b { color: var(--accent); font-weight: 500; }
+  h1 { font: 600 clamp(34px, 6vw, 50px)/1.08 var(--serif); letter-spacing: -0.015em; margin: 18px 0 18px; text-wrap: balance; }
+  .dek { font-size: 20px; line-height: 1.5; color: var(--text-2); margin: 0 0 22px; text-wrap: pretty; }
+  .byline { font-size: 14px; color: var(--muted); margin: 0; }
+
+  .numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-block: 40px 8px; }
+  .numbers div { background: var(--surface); padding: 18px 18px 16px; display: flex; flex-direction: column; gap: 6px; }
+  .numbers strong { font: 600 34px/1 var(--serif); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .numbers span { font-size: 14px; line-height: 1.4; color: var(--text-2); }
+
+  h2 { font: 600 28px/1.2 var(--serif); letter-spacing: -0.01em; margin: 56px 0 14px; text-wrap: balance; }
+  p { margin: 0 0 18px; text-wrap: pretty; }
+  ul, ol { padding-left: 1.2em; margin: 0 0 18px; }
+  li { margin-bottom: 8px; }
+  li::marker { color: var(--muted); }
+  code { font: 14px var(--mono); background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+  .pull { font: 500 24px/1.4 var(--serif); border-left: 2px solid var(--accent); padding: 2px 0 2px 20px; margin: 30px 0; color: var(--text); }
+
+  figure { margin: 36px auto; }
+  .fig-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; margin-bottom: 14px; }
+  .fig-title { font: 600 16px/1.3 var(--sans); }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--text-2); }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+  .panels { display: grid; grid-template-columns: 1fr 1.35fr; gap: 20px; }
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 14px 8px; position: relative; min-width: 0; }
+  .panel-label { font-size: 13px; color: var(--text-2); margin-bottom: 4px; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  svg text { font-family: var(--sans); }
+  .axis { fill: var(--muted); font-size: 11px; }
+  .grid { stroke: var(--border); stroke-width: 1; }
+  .dlabel { fill: var(--text); font-size: 12px; font-weight: 500; }
+  .seglabel { fill: #fff; font-size: 12px; font-weight: 600; }
+  .rowlabel { fill: var(--text-2); font-size: 12px; }
+  .hit { fill: transparent; cursor: default; }
+  figcaption { font-size: 14px; line-height: 1.5; color: var(--muted); margin-top: 12px; }
+  .tip { position: absolute; pointer-events: none; background: var(--text); color: var(--bg); font: 13px/1.4 var(--sans); padding: 7px 10px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, calc(-100% - 10px)); z-index: 2; font-variant-numeric: tabular-nums; }
+  details { margin-top: 10px; font-size: 14px; }
+  summary { cursor: pointer; color: var(--text-2); }
+  .table-wrap { overflow-x: auto; margin-top: 8px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-weight: 600; color: var(--text-2); }
+
+  .sources { font-size: 14px; color: var(--text-2); }
+  .sources li { margin-bottom: 6px; }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 56px 0 28px; }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .page { padding-block: 32px 72px; }
+    .numbers { grid-template-columns: 1fr; }
+    .numbers div { flex-direction: row; align-items: baseline; gap: 14px; }
+    .numbers strong { font-size: 28px; min-width: 88px; }
+    .panels { grid-template-columns: 1fr; }
+    .dek { font-size: 18px; }
+    h2 { font-size: 24px; }
+    .pull { font-size: 20px; }
+  }
+</style>
+
+<main class="page">
+  <header class="col">
+    <div class="status"><span><b>HTTP/1.1 402</b> Payment Required</span><span>September 2026</span><span>~9 min read</span></div>
+    <h1>I built a factory for x402 tools. Then I checked who's buying.</h1>
+    <p class="dek">Five live tools, a build pipeline with more quality gates than customers, and zero external buyers. So I mapped every x402 payment on Base over 30 days to find out whether the market I was building for exists.</p>
+    <p class="byline">Jannis · data from x402scan's public API, snapshot 23 Sep 2026</p>
+
+    <div class="numbers" role="list">
+      <div role="listitem"><strong>90%</strong><span>of the money comes from buyers who pay exactly one seller</span></div>
+      <div role="listitem"><strong>$10.7k</strong><span>spent in 30 days by buyers who shop across sellers, network-wide</span></div>
+      <div role="listitem"><strong>0</strong><span>external buyers for my five tools</span></div>
+    </div>
+  </header>
+
+  <article class="col">
+    <h2>What I built</h2>
+    <p>x402 turns the old <code>402 Payment Required</code> status code into a real payment flow: an agent calls an endpoint, gets a price back, signs a USDC payment and retries. No account, no API key. The pitch is that AI agents will find tools on their own and pay per call.</p>
+    <p>I took that pitch literally and built a factory for such tools. An idea scout, a viability review with live web search, a two-pass build, an automated smoke test, QA, and a publish gate. The tools run on Cloudflare Workers, settle through a chain of three facilitators (Coinbase CDP, then PayAI, then Primer), sit in both Bazaar discovery catalogs, and ship with an MCP server on npm so agents can call them directly.</p>
+    <p>Five tools went live on Base mainnet at 1 to 3 cents a call: a markdown extractor, a SPA-to-markdown renderer, a burn-once secret vault, an SVG bar-chart renderer and a GeoTIFF transcoder. They've taken 68 paid calls so far, and all 68 came from my own wallets.</p>
+
+    <h2>The question I should have asked first</h2>
+    <p>"Build a good tool and list it in a catalog" only works if buyers shop around, meaning agents that discover sellers and pay whoever fits the job. The alternative is that each seller brings its own users, and x402 is just the payment rail inside a product that already has them. In that world, a catalog listing is a storefront on a street nobody walks down.</p>
+    <p>That question has a public, on-chain answer, so I went and got it.</p>
+
+    <h2>How I measured it</h2>
+    <p>x402scan indexes x402 settlements and its API is public (the app is open source). I pulled every buyer on Base in the last 30 days, 18,291 wallets, and for each one the sellers it paid. That gives the complete buyer-to-seller graph, not a sample. Where a seller uses several payment addresses on one website, I merged them into one operator.</p>
+    <p>Two filters came first, because neither is anyone buying a tool:</p>
+    <ul>
+      <li><strong>Circular payments.</strong> If A pays B and B pays A, it's not a purchase. One ring of six wallets moved about $140k this way at roughly $25 per payment.</li>
+      <li><strong>Large one-off transfers.</strong> Anything averaging more than $5 per call (about $204k). x402 tool calls cost cents.</li>
+    </ul>
+    <p>As a sanity check, my own payment address came out exactly right: three wallets, 68 transactions, all mine.</p>
+
+    <h2>Finding 1: the market is captive</h2>
+    <p>I sorted every buyer into one of three groups: <em>captive</em> (pays exactly one operator), <em>open market</em> (pays two or more, with repeat use) and <em>probe</em> (pays many sellers once or twice each, i.e. indexers and test wallets, like mine).</p>
+  </article>
+
+  <figure class="wide" id="fig-split">
+    <div class="fig-head">
+      <div class="fig-title">x402 buyers on Base by type, last 30 days</div>
+      <div class="legend" aria-hidden="true">
+        <span><i style="background:var(--s1)"></i>Captive: pays one operator</span>
+        <span><i style="background:var(--s2)"></i>Open market</span>
+        <span><i style="background:var(--s3)"></i>Probe</span>
+      </div>
+    </div>
+    <div class="panel"><svg id="split" role="img" aria-label="Share of buyers, transactions and USDC by buyer type. Captive buyers are 89% of buyers, 87% of transactions and 90% of USDC."></svg></div>
+    <figcaption>After filtering circular payments and transfers over $5 per call. 17,681 buyers, 2.18M transactions, $147.5k.</figcaption>
+    <details>
+      <summary>Show the numbers</summary>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Type</th><th>Buyers</th><th>Transactions</th><th>USDC</th></tr></thead>
+        <tbody>
+          <tr><td>Captive</td><td>15,772 (89.2%)</td><td>1,904,905 (87.3%)</td><td>$133,317 (90.4%)</td></tr>
+          <tr><td>Open market</td><td>1,681 (9.5%)</td><td>203,763 (9.3%)</td><td>$10,741 (7.3%)</td></tr>
+          <tr><td>Probe</td><td>228 (1.3%)</td><td>73,847 (3.4%)</td><td>$3,475 (2.4%)</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+  </figure>
+
+  <article class="col">
+    <p>Nine out of ten dollars come from wallets that pay a single operator all month. The biggest sellers by buyer count are almost entirely captive: ax1.vc has 2,620 buyers and 99.8% of them pay only ax1.vc; clusterprotocol took $58k, all of it from its own captive buyers. That pattern looks like apps that give their users wallets and route payments through x402, not agents browsing a catalog.</p>
+    <p class="pull">x402 today is mostly a payment rail inside products that already have users, not a marketplace where agents shop.</p>
+
+    <h2>Finding 2: the open market is about $10k a month, for everyone</h2>
+    <p>The buyers who do shop across sellers exist, but there aren't many and they don't spend much: 1,681 wallets, $10.7k in 30 days, across the whole network. The median one uses two operators and spends $0.47 a month.</p>
+    <p>Spread across 16,656 operators, that pool is thin. 89% of operators have <strong>zero</strong> repeat buyers from the open market. 145 earned $10 or more from it. My tools are in the 89%, together with almost everyone else.</p>
+
+    <h2>Finding 3: who wins the open market</h2>
+    <p>The operators that open-market buyers keep coming back to fall into three groups:</p>
+    <ul>
+      <li><strong>Resellers of paid APIs that normally need an account.</strong> Contact enrichment, TikTok/Instagram/Reddit data, X data, image and video generation, pay per call with no signup. The agent is paying for <em>access</em> it couldn't otherwise get.</li>
+      <li><strong>Huge catalogs.</strong> Single operators with 100 to 800+ endpoints: market data, DeFi, utilities. Breadth gets them into many agents' toolboxes.</li>
+      <li><strong>Operators that own distribution.</strong> The biggest open-market earner belongs to the team that also runs x402scan and AgentCash, a wallet and skills plugin that lets Claude, Cursor and Codex pay for APIs. Many of its "open-market" buyers likely arrive through that wallet.</li>
+    </ul>
+    <p>None of these are "a small clever tool, listed in a catalog." They either sell access with a real cost behind it, or they sit where agents' wallets already are.</p>
+
+    <h2>Finding 4: the niche I liked is crowded and empty</h2>
+    <p>My favorite tool is the burn-once secret vault, a neutral way for agents to hand over a secret exactly once, with a signed receipt. I thought "trust primitives for agents" (secrets, receipts, attestation, timestamping, escrow) was an open niche.</p>
+    <p>It isn't. At least two dozen sellers are already in it, and they're tiny: the biggest one I found has 48 buyers and $32 over 30 days, and most have fewer than ten buyers and under a dollar. Plenty of people had the same idea; the buyers never showed up.</p>
+
+    <h2>Finding 5: and it's shrinking</h2>
+  </article>
+
+  <figure class="wide" id="fig-trend">
+    <div class="fig-head">
+      <div class="fig-title">Monthly x402 settlement volume on Base, USDC</div>
+      <div class="legend" aria-hidden="true"><span><i style="background:var(--bar)"></i>Full month</span><span><i style="background:var(--bar-partial)"></i>Partial month</span></div>
+    </div>
+    <div class="panels">
+      <div class="panel"><div class="panel-label">Jul 2025 – Sep 2026 · $M</div><svg id="trend-all" role="img" aria-label="Monthly volume peaked at 27.9 million USDC in November 2025 and has been under 2.3 million every month since."></svg></div>
+      <div class="panel"><div class="panel-label">2026 only · $k, own scale</div><svg id="trend-2026" role="img" aria-label="In 2026 monthly volume fell from about 2.3 million in March to about 0.65 to 1 million from June to August; September is partial at 0.32 million after 23 days."></svg></div>
+    </div>
+    <figcaption>Gross volume as x402scan reports it, before any wash filtering. September covers 23 days. The 2026 panel has its own scale so the recent trend is visible.</figcaption>
+    <details>
+      <summary>Show the numbers</summary>
+      <div class="table-wrap"><table id="trend-table">
+        <thead><tr><th>Month</th><th>USDC</th><th>Avg daily buyers</th></tr></thead>
+        <tbody></tbody>
+      </table></div>
+    </details>
+  </figure>
+
+  <article class="col">
+    <p>The spike in late 2025 was mostly the PING token mint: you paid via x402 and got tokens back, and tens of thousands of wallets did. Since then volume has drifted down, from about $2M a month in the spring to roughly $0.65–1M a month over the summer, and average daily buyers fell from about 6,000 in May to about 2,300 now.</p>
+    <p>Other analysts see the same direction with different absolute numbers, because they filter differently. An Artemis analysis found roughly half of x402 transactions were "gamed" (self-dealing or wash trading). Jamie Coutts, citing Helios data, reported settlement volume down 93% year to date. American Banker ran the story as "agentic payment rail shows volume decline."</p>
+
+    <h2>What's still true</h2>
+    <p>None of this means x402 is dead. The infrastructure keeps getting serious backing. The x402 Foundation launched under the Linux Foundation in April 2026, with members like Google, Visa, Mastercard, Stripe, AWS and Shopify. Cloudflare announced a Monetization Gateway in July (early access) that lets its customers charge for pages, APIs and MCP tools via x402 without writing payment code. Stripe runs its own Machine Payments Protocol and supports x402 too.</p>
+    <p>The forecasts are enormous: Gartner says AI agents could intermediate $15 trillion in purchases by 2028, McKinsey puts agentic retail commerce at $3 to 5 trillion by 2030. But those numbers are about agents buying things for people, not about agents browsing a catalog of small paid tools. Keyrock counted $73M across about 176M agent transactions on blockchain rails from May 2025 to April 2026. That's real, and it's tiny next to the forecasts.</p>
+    <p class="pull">The infrastructure has arrived before the economy it was built for.</p>
+
+    <h2>What I'd tell someone starting an x402 project today</h2>
+    <ul>
+      <li><strong>Check demand on-chain before you build.</strong> It's public and free. I built five tools and a factory before running a query that took an afternoon.</li>
+      <li><strong>A catalog listing is not distribution.</strong> Bring your own users, or get into the places where agents' wallets already are.</li>
+      <li><strong>Sell access or cost, not cleverness.</strong> What earns in the open market is something an agent can't do itself: paid data behind a signup, compute, real-world actions.</li>
+      <li><strong>Don't trust headline volume.</strong> One six-wallet ring moved about as much money in 30 days ($140k) as every genuine captive buyer on Base combined. Filter circular and outsized payments first.</li>
+      <li><strong>Waiting is cheap.</strong> Serverless x402 endpoints cost next to nothing to keep live, so there's no hurry to shut things down. Just don't keep building for a market that isn't there yet.</li>
+    </ul>
+
+    <h2>What's next for me</h2>
+    <p>The five tools stay live, since they cost almost nothing. I'm not building tool number six into an empty market. The next experiment is small: make the tools visible in the places where agent wallets actually look, and re-run this analysis in 30 days to see whether anything moves.</p>
+    <p>If you're building on x402 and see different numbers, or you've found where the buyers are, I'd like to hear about it.</p>
+
+    <hr>
+    <h2 style="margin-top:0;font-size:20px">Method and sources</h2>
+    <ul class="sources">
+      <li>Buyer graph: x402scan public tRPC API (<code>buyers.all.list</code>, <code>buyers.all.sellers</code>, <code>transfers.list</code>), Base, 30 days to 23 Sep 2026; 18,285 of 18,291 buyers fetched. Operators merged by website domain where x402scan knows it (1,133 addresses), which likely understates how captive the market is. <a href="https://github.com/Merit-Systems/x402scan" target="_blank" rel="noopener">x402scan source</a>.</li>
+      <li>Monthly volume: x402scan <code>stats.bucketed</code>, Base, all time, daily buckets summed by month.</li>
+      <li><a href="https://www.coindesk.com/markets/2026/03/11/coinbase-backed-ai-payments-protocol-wants-to-fix-micropayment-but-demand-is-just-not-there-yet" target="_blank" rel="noopener">CoinDesk, Mar 2026: demand "just not there yet" (Artemis ~50% gamed)</a></li>
+      <li><a href="https://finance.yahoo.com/markets/crypto/articles/x402-settlement-volume-plunges-93-105710906.html" target="_blank" rel="noopener">Yahoo Finance: settlement volume down 93% YTD (Coutts / Helios)</a></li>
+      <li><a href="https://www.americanbanker.com/payments/news/agentic-payment-rail-shows-volume-decline" target="_blank" rel="noopener">American Banker, Sep 2026: agentic payment rail shows volume decline</a></li>
+      <li><a href="https://www.coindesk.com/business/2026/05/21/crypto-rails-are-becoming-the-default-payment-layer-for-ai-agents-report-says" target="_blank" rel="noopener">CoinDesk on the Keyrock report, May 2026</a></li>
+      <li><a href="https://blog.cloudflare.com/monetization-gateway/" target="_blank" rel="noopener">Cloudflare: Monetization Gateway</a> · <a href="https://stripe.com/blog/machine-payments-protocol" target="_blank" rel="noopener">Stripe: Machine Payments Protocol</a> · <a href="https://docs.cdp.coinbase.com/x402/support/x402-foundation" target="_blank" rel="noopener">x402 Foundation</a></li>
+      <li><a href="https://www.tradingview.com/news/cointelegraph:ab783ddd6094b:0-why-the-x402-protocol-didn-t-fade-after-the-ping-hype-and-what-s-driving-the-second-wave/" target="_blank" rel="noopener">Cointelegraph on the PING mint</a> · <a href="https://agentcash.dev/" target="_blank" rel="noopener">AgentCash</a></li>
+    </ul>
+  </article>
+</main>
+
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (tag, attrs, parent) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; };
+  const fmtUsd = v => v >= 1e6 ? "$" + (v / 1e6).toFixed(2) + "M" : v >= 1e3 ? "$" + Math.round(v / 1e3).toLocaleString("en-US") + "k" : "$" + Math.round(v).toLocaleString("en-US");
+
+  function tooltip(panel) {
+    const t = document.createElement("div"); t.className = "tip"; t.hidden = true; panel.appendChild(t);
+    return {
+      show(html, svg, x, y) {
+        const r = svg.getBoundingClientRect(), p = panel.getBoundingClientRect(), vb = svg.viewBox.baseVal;
+        t.innerHTML = html; t.hidden = false;
+        const left = r.left - p.left + x * r.width / vb.width, top = r.top - p.top + y * r.height / vb.height;
+        const half = t.offsetWidth / 2;
+        t.style.left = Math.min(Math.max(left, half), p.width - half) + "px"; t.style.top = top + "px";
+      },
+      hide() { t.hidden = true; }
+    };
+  }
+
+  // Monthly volume, Base (x402scan stats.bucketed, summed by month): [month, usdc, avg daily buyers, days]
+  const months = [["2025-07",457,11,30],["2025-08",2306,21,31],["2025-09",1130,25,30],["2025-10",3965089,9267,31],["2025-11",27883841,20011,30],["2025-12",3263523,16904,31],["2026-01",1203948,4574,31],["2026-02",2061836,1843,28],["2026-03",2265923,2776,31],["2026-04",1926575,2446,30],["2026-05",1030262,5955,31],["2026-06",787705,4090,30],["2026-07",654912,2699,31],["2026-08",1031065,2438,31],["2026-09",324128,2265,23]];
+  const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const label = m => MON[+m.slice(5) - 1];
+  const longLabel = m => MON[+m.slice(5) - 1] + " " + m.slice(0, 4);
+
+  function bars(svgId, data, opts) {
+    const svg = document.getElementById(svgId), W = opts.width, H = 220, L = 40, R = 8, T = 22, B = 24;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    const tip = tooltip(svg.parentElement);
+    const max = opts.max, y = v => T + (H - T - B) * (1 - v / max);
+    for (const tv of opts.ticks) {
+      el("line", { x1: L, x2: W - R, y1: y(tv), y2: y(tv), class: "grid" }, svg);
+      el("text", { x: L - 6, y: y(tv) + 4, "text-anchor": "end", class: "axis" }, svg).textContent = opts.tickFmt(tv);
+    }
+    const slot = (W - L - R) / data.length, bw = Math.max(4, Math.min(22, slot - 4));
+    data.forEach((d, i) => {
+      const [m, v, buyers, days] = d, partial = days < 28 && m === "2026-09";
+      const cx = L + slot * i + slot / 2, top = y(v), h = Math.max(1, y(0) - top), r = Math.min(4, bw / 2, h);
+      // rounded data-end, square baseline
+      el("path", { d: `M${cx - bw / 2},${y(0)} V${top + r} Q${cx - bw / 2},${top} ${cx - bw / 2 + r},${top} H${cx + bw / 2 - r} Q${cx + bw / 2},${top} ${cx + bw / 2},${top + r} V${y(0)} Z`, fill: partial ? "var(--bar-partial)" : "var(--bar)" }, svg);
+      if (opts.labelEvery(i, m)) el("text", { x: cx, y: H - 6, "text-anchor": "middle", class: "axis" }, svg).textContent = label(m) + (m.endsWith("-01") || i === 0 ? " ’" + m.slice(2, 4) : "");
+      if (opts.direct.includes(m)) el("text", { x: cx, y: top - 6, "text-anchor": "middle", class: "dlabel" }, svg).textContent = fmtUsd(v) + (partial ? "*" : "");
+      const hit = el("rect", { x: L + slot * i, y: T, width: slot, height: H - T - B, class: "hit" }, svg);
+      const html = `<strong>${longLabel(m)}${partial ? " (23 days)" : ""}</strong><br>${fmtUsd(v)} · ${buyers.toLocaleString("en-US")} buyers/day`;
+      hit.addEventListener("mouseenter", () => tip.show(html, svg, cx, top));
+      hit.addEventListener("mouseleave", () => tip.hide());
+    });
+    el("line", { x1: L, x2: W - R, y1: y(0), y2: y(0), stroke: "var(--muted)", "stroke-width": 1 }, svg);
+  }
+
+  bars("trend-all", months, { width: 340, max: 30e6, ticks: [0, 10e6, 20e6, 30e6], tickFmt: v => v ? (v / 1e6) + "M" : "0",
+    labelEvery: (i, m) => ["2025-07", "2025-11", "2026-03", "2026-07"].includes(m), direct: ["2025-11"] });
+  const y2026 = months.filter(d => d[0] >= "2026-01");
+  bars("trend-2026", y2026, { width: 460, max: 2.5e6, ticks: [0, 0.5e6, 1e6, 1.5e6, 2e6, 2.5e6], tickFmt: v => v ? (v / 1e3).toLocaleString("en-US") + "k" : "0",
+    labelEvery: () => true, direct: ["2026-03", "2026-07", "2026-09"] });
+
+  const tbody = document.querySelector("#trend-table tbody");
+  for (const [m, v, b, days] of months) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${longLabel(m)}${days < 28 && m === "2026-09" ? " (23 days)" : ""}</td><td>$${v.toLocaleString("en-US")}</td><td>${b.toLocaleString("en-US")}</td>`;
+    tbody.appendChild(tr);
+  }
+
+  // Buyer-type split: 100% stacked bars
+  const rows = [
+    ["Buyers", [15772, 1681, 228], v => v.toLocaleString("en-US") + " buyers"],
+    ["Transactions", [1904905, 203763, 73847], v => v.toLocaleString("en-US") + " transactions"],
+    ["USDC", [133317, 10741, 3475], v => "$" + v.toLocaleString("en-US")],
+  ];
+  const names = ["Captive", "Open market", "Probe"], colors = ["var(--s1)", "var(--s2)", "var(--s3)"];
+  const svg = document.getElementById("split"), W = 820, L = 100, R = 60, rowH = 30, gapY = 18, T = 6;
+  const H = T + rows.length * (rowH + gapY);
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const tip = tooltip(svg.parentElement), span = W - L - R;
+  rows.forEach(([name, vals, fmt], ri) => {
+    const total = vals.reduce((a, b) => a + b, 0), yTop = T + ri * (rowH + gapY);
+    el("text", { x: L - 10, y: yTop + rowH / 2 + 4, "text-anchor": "end", class: "rowlabel" }, svg).textContent = name;
+    let x = L;
+    vals.forEach((v, si) => {
+      const share = v / total, w = Math.max(2, share * span - 2);
+      el("rect", { x, y: yTop, width: w, height: rowH, rx: 3, fill: colors[si] }, svg);
+      if (si === 0) el("text", { x: x + 10, y: yTop + rowH / 2 + 4, class: "seglabel" }, svg).textContent = "Captive " + Math.round(share * 100) + "%";
+      const hit = el("rect", { x, y: yTop - 4, width: Math.max(w, 10), height: rowH + 8, class: "hit" }, svg);
+      const cx = x + w / 2, html = `<strong>${names[si]} · ${(share * 100).toFixed(1)}%</strong><br>${fmt(v)}`;
+      hit.addEventListener("mouseenter", () => tip.show(html, svg, cx, yTop));
+      hit.addEventListener("mouseleave", () => tip.hide());
+      x += share * span;
+    });
+    const rest = vals.slice(1).reduce((a, b) => a + b, 0) / total;
+    el("text", { x: W - R + 8, y: yTop + rowH / 2 + 4, class: "rowlabel" }, svg).textContent = Math.round(rest * 100) + "% other";
+  });
+})();
+</script>
+
+</body>
+</html>
